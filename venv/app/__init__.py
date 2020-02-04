@@ -1,9 +1,9 @@
 from . import db
 import os
-
-from flask import Flask, render_template, redirect
+from pyshorteners import Shorteners
+import pyshorteners
+from flask import Flask, render_template, redirect, request
 from . import db
-
 
 def create_app(test_config=None):
     # create and configure the app
@@ -36,9 +36,14 @@ def create_app(test_config=None):
     def home():
         return render_template('home.html')
 
-    @app.route('/shorten')
+    @app.route('/shorten', methods=['POST'])
     def shorten():
-        return redirect('result.html')
+        long_url =  request.form["enteredUrl"]
+        s = pyshorteners.Shortener(Shorteners.TINYURL)
+        url = s.short(long_url)
+        return url
+       
+        
 
     db.init_app(app)
 
