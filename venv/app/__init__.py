@@ -41,7 +41,7 @@ def create_app(test_config=None):
         long_url =  request.form["enteredUrl"]
         s = pyshorteners.Shortener(Shorteners.TINYURL)
         url = s.short(long_url)
-        return url
+        return render_template('result.html', result=url)
        
         
 
