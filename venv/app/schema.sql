@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS post;
+
+CREATE TABLE short_url (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  long_url VARCHAR NOT NULL,
+  short_url VARCHAR
+);

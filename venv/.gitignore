@@ -1,0 +1,9 @@
+
+*.pyc
+__pycache__/
+
+instance/
+lib
+bin
+include
+pyvenv.cfg
